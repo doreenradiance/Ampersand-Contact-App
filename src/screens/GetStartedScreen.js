@@ -1,19 +1,16 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-export default function GetStartedScreen() {
+export default function GetStartedScreen({ route, navigation }) {
+    let firstScreen = route.params;
     return (
         <View style={styles.mainContainer}>
 
-            <View style={styles.icon}>
-                <View style={styles.icons}>
-                    <View style={styles.arrowLeft}>
-                        <AntDesign name="left" size={50} color="black" />
-                    </View>
-
-                </View>
-            </View>
+            <TouchableOpacity onPress={() => { navigation.navigate("FirstScreen") }}
+            >
+                <AntDesign name="left" style={styles.left} size={30} />
+            </TouchableOpacity>
             <Image source={require('../../assets/image.jpg')} style={styles.image} />
 
             <View style={styles.texts}>
@@ -22,24 +19,34 @@ export default function GetStartedScreen() {
             </View>
 
             <View style={styles.footer}>
-                <View>
-                    <Text style={{ fontSize: 18 }}>REGISTER</Text>
-                    <View style={{
-                        backgroundColor: "red",
-                        height: 2,
-                        width: 80,
-                        borderRadius: 15,
-                    }}></View>
-                </View>
-                <View>
-                    <Text style={{ fontSize: 18 }}>SIGN IN</Text>
-                    <View style={{
-                        backgroundColor: "red",
-                        height: 2,
-                        width: 65,
-                        borderRadius: 15,
-                    }}></View>
-                </View>
+                <TouchableOpacity style={styles.footer} onPress={() => {
+                    navigation.navigate('RegisterScreen')
+                }}>
+                    <View>
+                        <Text style={{ fontSize: 18 }}>REGISTER</Text>
+                        <View style={{
+                            backgroundColor: "red",
+                            height: 2,
+                            width: 80,
+                            borderRadius: 15,
+                        }}></View>
+
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.footer} onPress={() => {
+                    navigation.navigate('LogInScreen')
+                }}>
+                    <View>
+                        <Text style={{ fontSize: 18 }}>SIGN IN</Text>
+                        <View style={{
+                            backgroundColor: "red",
+                            height: 2,
+                            width: 65,
+                            borderRadius: 15,
+                        }}></View>
+                    </View>
+                </TouchableOpacity>
             </View>
 
 
@@ -57,12 +64,10 @@ const styles = StyleSheet.create({
         marginRight: 20,
         alignSelf: "flex-start",
     },
-    arrowLeft: {
-        marginLeft: 15,
-        height: 40,
-        width: 40,
-        // alignItems: "center"
+    left: {
+        marginTop: 30
     },
+
     image: {
         height: 350,
         width: 360,
