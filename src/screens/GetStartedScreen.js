@@ -6,12 +6,7 @@ export default function GetStartedScreen({ route, navigation }) {
     let firstScreen = route.params;
     return (
         <View style={styles.mainContainer}>
-
-            <TouchableOpacity onPress={() => { navigation.navigate("FirstScreen") }}
-            >
-                <AntDesign name="left" style={styles.left} size={30} />
-            </TouchableOpacity>
-            <Image source={require('../../assets/image.jpg')} style={styles.image} />
+            <Image source={require('../../assets/img.jpg')} style={styles.image} />
 
             <View style={styles.texts}>
                 <Text style={{ fontSize: 20, marginHorizontal: 10 }}>KEEP IN TOUCH WITH THE PEOPLE OF CODETRAIN</Text>
@@ -70,7 +65,7 @@ const styles = StyleSheet.create({
 
     image: {
         height: 350,
-        width: 360,
+        width: "100%",
         flex: 0.5
     },
 
@@ -83,7 +78,8 @@ const styles = StyleSheet.create({
         flex: 0.35,
         flexDirection: "row",
         alignItems: 'flex-end',
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        marginBottom:20
 
     },
 

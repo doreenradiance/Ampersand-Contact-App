@@ -1,127 +1,137 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function RegisterScreen({ route, navigation }) {
     let RegisterScreen = route.params
     return (
-        <View style={styles.mainContainer}>
-            <View style={styles.heading}>
-                <TouchableOpacity onPress={() => { navigation.navigate("GetStartedScreen") }}
-                >
-                    <AntDesign name="arrowleft" size={24} color="white" />
-                </TouchableOpacity>
-                <Text style={{ fontSize: 20, color: "white" }}>Register</Text>
-            </View>
+        <ScrollView style={styles.mainContainer}>
 
-            <Image source={require('../../assets/office.jpg')} style={styles.image} />
+            <Image source={require('../../assets/profile.jpg')} style={styles.image} />
 
             <View style={{
                 flexDirection: "row", alignItems: "center", justifyContent: "space-between"
             }}>
-                <Text style={{fontWeight:"bold"}}>Full Name</Text>
-                <TextInput style={styles.input}
+                <Text style={{fontWeight:"bold",marginBottom:10,marginLeft:15}}>Full Name</Text>
+                <TextInput style={{ marginRight: 20,marginBottom:10 }}
                     placeholderTextColor="#aaaaaa"
                     placeholder="Doreen Mensah"
                 />
             </View>
 
+            <View style={{backgroundColor:"#e6e7e8",height:2,width:330,marginBottom:20,marginLeft:15}}></View>
+
             <View style={{
                 flexDirection: "row", alignItems: "center", justifyContent: "space-between"
             }}>
-                <Text style={{fontWeight:"bold"}}>Email</Text>
-                <TextInput style={styles.input}
+                <Text style={{fontWeight:"bold",marginBottom:10,marginLeft:15}}>Email</Text>
+                <TextInput style={{ marginRight: 20,marginBottom:10 }}
                     placeholderTextColor="#aaaaaa"
                     placeholder="doreen@gmail.com"
                     secureTextEntry={true}
                 />
             </View>
 
+            <View style={{backgroundColor:"#e6e7e8",height:2,width:330,marginBottom:20,marginLeft:15}}></View>
+            
             <View style={{
                 flexDirection: "row", alignItems: "center", justifyContent: "space-between"
             }}>
-                <Text style={{fontWeight:"bold"}}>Phone Number</Text>
-                <TextInput style={styles.input}
+                <Text style={{fontWeight:"bold",marginBottom:10,marginLeft:15}}>Phone Number</Text>
+                <TextInput style={{ marginRight: 20,marginBottom:10 }}
                     placeholderTextColor="#aaaaaa"
                     placeholder="+233 548912650"
                     secureTextEntry={true}
                 />
             </View>
 
+            <View style={{backgroundColor:"#e6e7e8",height:2,width:330,marginBottom:20,marginLeft:15}}></View>
+
             <View style={{
                 flexDirection: "row", alignItems: "center", justifyContent: "space-between"
             }}>
-                <Text style={{fontWeight:"bold"}}>Role</Text>
-                <TextInput style={styles.input}
+                <Text style={{fontWeight:"bold",marginBottom:10,marginLeft:15}}>Role</Text>
+                <TextInput style={{ marginRight: 20,marginBottom:10 }}
                     placeholderTextColor="#aaaaaa"
                     placeholder="Digital Marketer"
                     secureTextEntry={true}
                 />
             </View>
 
+            <View style={{backgroundColor:"#e6e7e8",height:2,width:330,marginBottom:20,marginLeft:15}}></View>
+
             <View style={{
                 flexDirection: "row", alignItems: "center", justifyContent: "space-between"
             }}>
-                <Text style={{fontWeight:"bold"}}>Twitter</Text>
-                <TextInput style={styles.input}
+                <Text style={{fontWeight:"bold",marginBottom:10,marginLeft:15}}>Twitter</Text>
+                <TextInput style={{ marginRight: 20,marginBottom:10,marginLeft:15 }}
                     placeholderTextColor="#aaaaaa"
                     placeholder="@DoreenAnum"
                     secureTextEntry={true}
                 />
             </View>
 
+            <View style={{backgroundColor:"#e6e7e8",height:2,width:330,marginBottom:20,marginLeft:15}}></View>
+
             <View style={{
                 flexDirection: "row", alignItems: "center", justifyContent: "space-between"
             }}>
-                <Text style={{fontWeight:"bold"}}>LinkedIn</Text>
-                <TextInput style={styles.input}
+                <Text style={{fontWeight:"bold",marginBottom:10,marginLeft:15}}>LinkedIn</Text>
+                <TextInput style={{ marginRight: 20,marginBottom:10 }}
                     placeholderTextColor="#aaaaaa"
                     placeholder="/Doreen.Anum"
                     secureTextEntry={true}
                 />
             </View>
 
-            <View>
-                <TouchableOpacity style={styles.buttonContainer}>
+            <View style={{backgroundColor:"#e6e7e8",height:2,width:330,marginBottom:20,marginLeft:15}}></View>
+            
+            <View style={styles.footer}>
+                <TouchableOpacity onPress={() => { navigation.navigate("ScanScreen") }}
+                style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>REGISTER</Text>
                 </TouchableOpacity>
             </View>
 
 
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        justifyContent: "space-around"
+        // justifyContent: "space-around"
     },
     heading: {
         flexDirection: "row",
         backgroundColor: "#de4f45",
-        height: 50,
+        height: 70,
         justifyContent: "space-around",
         alignItems: "center",
     },
 
     image: {
-        height: 350,
-        width: 360,
-        flex: 0.5
+        height: 200,
+        width: "100%",
+        // flex: 0.5,
+        marginBottom:15
     },
     buttonContainer: {
         height: 40,
-        width: 350,
+        width: 320,
         backgroundColor: "#de4f45",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: 5
+        borderRadius: 3,
+        marginLeft:20
     },
     buttonText: {
         color: "white",
         fontSize: 15,
     },
-
+footer:{
+    marginBottom:50
+}
 })
 
