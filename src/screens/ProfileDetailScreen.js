@@ -1,19 +1,11 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import { Feather, MaterialIcons, SimpleLineIcons, AntDesign } from '@expo/vector-icons';
+import { Image, StyleSheet, Text, View, } from 'react-native'
+import { Feather, MaterialIcons, SimpleLineIcons, } from '@expo/vector-icons';
 
 export default function MemberDetailsScreen({ route, navigation }) {
     let ProfileDetailScreen = route.params
     return (
         <View>
-            {/* <View style={styles.heading}>
-                <TouchableOpacity onPress={() => { navigation.navigate("GetStartedScreen") }}
-                >
-                    <AntDesign name="arrowleft" size={24} color="white" />
-                </TouchableOpacity>
-                <Text style={{ fontSize: 20, color: "white", marginLeft: 30 }}> My Profile</Text>
-            </View> */}
-
             <View style={styles.Info}>
                 <View style={styles.Dp}>
                     <Image source={require('../../assets/dp2.jpg')} style={styles.dp} />
