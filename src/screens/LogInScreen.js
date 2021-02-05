@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
 
 export default function LogInScreen({ route, navigation }) {
     let LogInScreen = route.params;
@@ -62,8 +61,7 @@ export default function LogInScreen({ route, navigation }) {
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        // marginTop: 25,
-        // justifyContent: "space-around"
+        
     },
     heading: {
         flexDirection: "row",
