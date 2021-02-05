@@ -1,7 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
+import {  connect} from "react-redux";
 
-export default function LogInScreen({ route, navigation }) {
+function LogInScreen({ route, navigation }) {
     let LogInScreen = route.params;
     return (
         <View style={styles.mainContainer}>
@@ -96,3 +97,9 @@ const styles = StyleSheet.create({
         marginLeft: 20
     }
 })
+
+export default connect( 
+    function () {
+    return
+}
+,{}) (LogInScreen);

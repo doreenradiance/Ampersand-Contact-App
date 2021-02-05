@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
+import { connect } from "react-redux"
 
-export default function RegisterScreen({ route, navigation }) {
+function RegisterScreen({ route, navigation }) {
     let RegisterScreen = route.params
     return (
         <ScrollView style={styles.mainContainer}>
@@ -135,3 +135,8 @@ const styles = StyleSheet.create({
     }
 })
 
+export default connect(
+ function () {
+     return 
+ }
+,{}) (RegisterScreen);
