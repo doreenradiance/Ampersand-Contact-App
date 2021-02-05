@@ -36,7 +36,7 @@ function LogInScreen({ route, navigation }) {
             </View>
 
             <View>
-                <TouchableOpacity  onPress={() => { navigation.navigate("ScanScreen") }}style={styles.buttonContainer}>
+                <TouchableOpacity  onPress={() => { navigation.navigate("DetailsScreen") }}style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>SIGN IN</Text>
                 </TouchableOpacity>
             </View>

@@ -87,7 +87,7 @@ function RegisterScreen({ route, navigation }) {
             <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
 
             <View style={styles.footer}>
-                <TouchableOpacity onPress={() => { navigation.navigate("ScanScreen") }}
+                <TouchableOpacity onPress={() => { navigation.navigate("DetailsScreen") }}
                     style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>REGISTER</Text>
                 </TouchableOpacity>
