@@ -1,14 +1,14 @@
 import React from 'react';
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from '@expo/vector-icons';
-import FirstScreen from './src/screens/FirstScreen';
-import GetStartedScreen from './src/screens/GetStartedScreen';
-import LogInScreen from './src/screens/LogInScreen';
-import RegisterScreen from "./src/screens/RegisterScreen";
-import ScanScreen from "./src/screens/ScanScreen";
-import ScanningScreen from "./src/screens/ScanningScreen";
-import DetailsScreen from "./src/screens/DetailsScreen";
-import ProfileDetailScreen from "./src/screens/ProfileDetailScreen";
+import FirstScreen from '../screens/FirstScreen';
+import GetStartedScreen from '../screens/GetStartedScreen';
+import LogInScreen from '../screens/LogInScreen';
+import RegisterScreen from "../screens/RegisterScreen";
+import ScanScreen from "../screens/ScanScreen";
+import ScanningScreen from "../screens/ScanningScreen";
+import DetailsScreen from "../screens/DetailsScreen";
+import ProfileDetailScreen from "../screens/ProfileDetailScreen";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack'
