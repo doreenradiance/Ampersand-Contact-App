@@ -50,7 +50,7 @@ export default function ScanningScreen({ route, navigation }) {
                     marginHorizontal: 20, color: "black",
                 }}>Want to share your contact?</Text>
 
-                <TouchableOpacity  onPress={() => { navigation.navigate("ScanScreen") }} style={styles.scan}>
+                <TouchableOpacity  onPress={() => { navigation.navigate("DetailsScreen") }} style={styles.scan}>
                     <Text style={{ color: 'red' }}>Send QR</Text>
                 </TouchableOpacity>
             </View>

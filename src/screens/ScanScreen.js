@@ -33,7 +33,6 @@ export default function ScanScreen({ route, navigation }) {
             <View>
                 <View style={{
                     backgroundColor: "#b2b9bf", height: 2,
-                    //  width: 360, marginBottom: 30 
                 }}></View>
                 <View style={styles.footer}>
                     <Text style={{
