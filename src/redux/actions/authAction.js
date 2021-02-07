@@ -5,7 +5,7 @@ export function createEmailAccount(email, password) {
         try {
             const user = await firebase.auth.createUserWithEmailAndPassword(email, password)
             dispatch(loggedIn(user))
-
+console.log(user)
         } catch (error) {
             console.log(error)
         }
@@ -17,7 +17,7 @@ export function loginEmailAccount(email, password) {
         try {
             const user = await firebase.auth.signInWithEmailAndPassword(email, password)
             dispatch(loggedIn(user))
-
+console.log(user)
         } catch (error) {
             console.log(error)
         }
@@ -42,7 +42,7 @@ function loggedIn(user) {
     }
 }
 
-function loggedOut(user) {
+function loggedOut() {
     return {
         type: "LOGGED-OUT",
     }
