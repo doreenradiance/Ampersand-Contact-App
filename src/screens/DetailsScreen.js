@@ -6,8 +6,6 @@ export default function MemberDetailsScreen({ route, navigation }) {
     let DetailsScreen = route.params
     return (
         <View>
-           
-
             <View style={styles.Info}>
                 <View style={styles.Dp}>
                     <Image source={require('../../assets/dp.jpg')} style={styles.dp} />
