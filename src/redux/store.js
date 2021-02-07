@@ -1,6 +1,6 @@
-import { createStore } from "redux";
-import reducers from "./reducers/authReducers";
-
-let store = createStore(reducers)
+import { createStore,applyMiddleware } from "redux";
+import authReducers from "./reducers/authReducers";
+import thunk from "redux-thunk"
+let store = createStore(authReducers, applyMiddleware(thunk))
 
 export default store;
