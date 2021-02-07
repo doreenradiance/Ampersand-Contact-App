@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
 import { connect } from "react-redux";
 import { createEmailAccount } from "../redux/actions/authAction";
@@ -9,119 +9,133 @@ class RegisterScreen extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           name:"",
+            name: "",
             email: "",
-            phone: "",
+            password: "",
             role: "",
-            twitter:"",
-            linkedIn:""
+            twitter: "",
+            linkedIn: ""
         }
     }
+    handleUpdateState = (name, value) => {
+        this.setState({
+            [name]: value
+        })
+    }
+    handleOnSubmit = () =>{
+        this.props.createEmailAccount(this.state.email, this.state.password)
+    }
 
-render() {
+    render() {
 
-    const { route, navigation, } = this.props
-    let RegisterScreen = route.params
+        const { route, navigation, auth} = this.props
+        let RegisterScreen = route.params
 
-    return (
-        <ScrollView style={styles.mainContainer}>
+        return (
+            <ScrollView style={styles.mainContainer}>
 
-            <Image source={require('../../assets/profile.jpg')} style={styles.image} />
+                <Image source={require('../../assets/profile.jpg')} style={styles.image} />
 
-            <View style={{
-                flexDirection: "row", alignItems: "center", justifyContent: "space-between"
-            }}>
-                <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Full Name</Text>
-                <TextInput style={{ marginRight: 20, marginBottom: 10 }}
-                value = {this.state.name}
-                    placeholderTextColor="#aaaaaa"
-                    // placeholder="Doreen Mensah"
-                />
-            </View>
+                <View style={{
+                    flexDirection: "row", alignItems: "center", justifyContent: "space-between"
+                }}>
+                    <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Full Name</Text>
+                    <TextInput style={{ marginRight: 20, marginBottom: 10 }}
+                        value={this.state.name}
+                        onChangeText={(text) => { this.handleUpdateState("name", text) }}
+                        placeholderTextColor="#aaaaaa"
+                        placeholder="Doreen Mensah"
+                    />
+                </View>
 
-            <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
+                <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
 
-            <View style={{
-                flexDirection: "row", alignItems: "center", justifyContent: "space-between"
-            }}>
-                <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Email</Text>
-                <TextInput style={{ marginRight: 20, marginBottom: 10 }}
-                value={this.state.email}
-                    placeholderTextColor="#aaaaaa"
-                    placeholder="doreen@gmail.com"
+                <View style={{
+                    flexDirection: "row", alignItems: "center", justifyContent: "space-between"
+                }}>
+                    <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Email</Text>
+                    <TextInput style={{ marginRight: 20, marginBottom: 10 }}
+                        value={this.state.email}
+                        onChangeText={(text) => { this.handleUpdateState("email", text) }}
+                        placeholderTextColor="#aaaaaa"
+                        placeholder="doreen@gmail.com"
                     // secureTextEntry={true}
-                />
-            </View>
+                    />
+                </View>
 
-            <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
+                <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
 
-            <View style={{
-                flexDirection: "row", alignItems: "center", justifyContent: "space-between"
-            }}>
-                <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Phone Number</Text>
-                <TextInput style={{ marginRight: 20, marginBottom: 10 }}
-                value={this.state.phone}
-                    placeholderTextColor="#aaaaaa"
-                    placeholder="+233 548912650"
+                <View style={{
+                    flexDirection: "row", alignItems: "center", justifyContent: "space-between"
+                }}>
+                    <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Password</Text>
+                    <TextInput style={{ marginRight: 20, marginBottom: 10 }}
+                        value={this.state.password}
+                        onChangeText={(text) => { this.handleUpdateState("password", text) }}
+                        placeholderTextColor="#aaaaaa"
+                        placeholder="password"
                     // secureTextEntry={true}
-                />
-            </View>
+                    />
+                </View>
 
-            <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
+                <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
 
-            <View style={{
-                flexDirection: "row", alignItems: "center", justifyContent: "space-between"
-            }}>
-                <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Role</Text>
-                <TextInput style={{ marginRight: 20, marginBottom: 10 }}
-                value={this.state.role}
-                    placeholderTextColor="#aaaaaa"
-                    placeholder="Digital Marketer"
+                <View style={{
+                    flexDirection: "row", alignItems: "center", justifyContent: "space-between"
+                }}>
+                    <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Role</Text>
+                    <TextInput style={{ marginRight: 20, marginBottom: 10 }}
+                        value={this.state.role}
+                        onChangeText={(text) => { this.handleUpdateState("role", text) }}
+                        placeholderTextColor="#aaaaaa"
+                        placeholder="Digital Marketer"
                     // secureTextEntry={true}
-                />
-            </View>
+                    />
+                </View>
 
-            <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
+                <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
 
-            <View style={{
-                flexDirection: "row", alignItems: "center", justifyContent: "space-between"
-            }}>
-                <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Twitter</Text>
-                <TextInput style={{ marginRight: 20, marginBottom: 10, marginLeft: 15 }}
-                value={this.state.twitter}
-                    placeholderTextColor="#aaaaaa"
-                    placeholder="@DoreenAnum"
+                <View style={{
+                    flexDirection: "row", alignItems: "center", justifyContent: "space-between"
+                }}>
+                    <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>Twitter</Text>
+                    <TextInput style={{ marginRight: 20, marginBottom: 10, marginLeft: 15 }}
+                        value={this.state.twitter}
+                        onChangeText={(text) => { this.handleUpdateState("twitter", text) }}
+                        placeholderTextColor="#aaaaaa"
+                        placeholder="@DoreenAnum"
                     // secureTextEntry={true}
-                />
-            </View>
+                    />
+                </View>
 
-            <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
+                <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
 
-            <View style={{
-                flexDirection: "row", alignItems: "center", justifyContent: "space-between"
-            }}>
-                <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>LinkedIn</Text>
-                <TextInput style={{ marginRight: 20, marginBottom: 10 }}
-                value={this.state.linkedIn}
-                    placeholderTextColor="#aaaaaa"
-                    placeholder="/Doreen.Anum"
+                <View style={{
+                    flexDirection: "row", alignItems: "center", justifyContent: "space-between"
+                }}>
+                    <Text style={{ fontWeight: "bold", marginBottom: 10, marginLeft: 15 }}>LinkedIn</Text>
+                    <TextInput style={{ marginRight: 20, marginBottom: 10 }}
+                        value={this.state.linkedIn}
+                        onChangeText={(text) => { this.handleUpdateState("linkedIn", text) }}
+                        placeholderTextColor="#aaaaaa"
+                        placeholder="/Doreen.Anum"
                     // secureTextEntry={true}
-                />
-            </View>
+                    />
+                </View>
 
-            <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
+                <View style={{ backgroundColor: "#e6e7e8", height: 2, width: 330, marginBottom: 20, marginLeft: 15 }}></View>
 
-            <View style={styles.footer}>
-                <TouchableOpacity onPress={() => { navigation.navigate("ProfileDetailScreen") }}
-                    style={styles.buttonContainer}>
-                    <Text style={styles.buttonText}>REGISTER</Text>
-                </TouchableOpacity>
-            </View>
+                <View style={styles.footer}>
+                    <TouchableOpacity onPress={this.handleOnSubmit}
+                        style={styles.buttonContainer}>
+                        <Text style={styles.buttonText}>REGISTER</Text>
+                    </TouchableOpacity>
+                </View>
 
 
-        </ScrollView>
-    )
-}
+            </ScrollView>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -161,8 +175,7 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(
-    function () {
-        return {}
-    }
-    , { createEmailAccount })(RegisterScreen);
+const mapStateToProp = (state)=>{
+    return{auth:state}
+}
+export default connect(mapStateToProp, { createEmailAccount })(RegisterScreen);
