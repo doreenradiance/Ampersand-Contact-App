@@ -1,6 +1,6 @@
 import { createStore } from "redux";
-import authReducers from "./reducers/authReducers";
+import reducers from "./reducers/authReducers";
 
-let store = createStore()
+let store = createStore(reducers)
 
 export default store;
